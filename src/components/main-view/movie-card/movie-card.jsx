@@ -2,6 +2,6 @@ import React from 'react';
 
 export class MovieCard extends React.Component {
   render() {
-    return <div className='movei-card'>some title</div>;
+    return <div className='movie-card'>some title</div>;
   }
 }
