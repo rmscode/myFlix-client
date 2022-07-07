@@ -20,13 +20,18 @@ class MainView extends React.Component {
   }
 
   render() {
-    return (
-      <div className='main-view'>
-        <div>Inception</div>
-        <div>The Shawshank Redemption</div>
-        <div>Gladiator</div>
-      </div>
-    );
+    const movies = this.state.movies;
+    if (movies.length === 0){
+      return <div className="main-view">The list is empty!</div>;
+    } else {
+      return (
+        <div className="main-view">
+          {movies.map((movie) => {
+            return <div>{movie.Title}</div>;
+          })}
+        </div>
+      );
+    }
   }
 }
 
