@@ -33116,9 +33116,30 @@ var MainView = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(MainView);
 
   function MainView() {
+    var _this;
+
     _classCallCheck(this, MainView);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.state = {
+      movies: [{
+        _id: 1,
+        Title: 'Inception',
+        Description: 'desc1...',
+        ImagePath: '...'
+      }, {
+        _id: 2,
+        Title: 'The Shawshank Redemption',
+        Description: 'desc2...',
+        ImagePath: '...'
+      }, {
+        _id: 3,
+        Title: 'Gladiator',
+        Description: 'desc3...',
+        ImagePath: '...'
+      }]
+    };
+    return _this;
   }
 
   _createClass(MainView, [{
