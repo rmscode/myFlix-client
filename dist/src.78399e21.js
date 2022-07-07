@@ -33145,9 +33145,19 @@ var MainView = /*#__PURE__*/function (_React$Component) {
   _createClass(MainView, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: "main-view"
-      }, /*#__PURE__*/_react.default.createElement("div", null, "Inception"), /*#__PURE__*/_react.default.createElement("div", null, "The Shawshank Redemption"), /*#__PURE__*/_react.default.createElement("div", null, "Gladiator"));
+      var movies = this.state.movies;
+
+      if (movies.length === 0) {
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: "main-view"
+        }, "The list is empty!");
+      } else {
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: "main-view"
+        }, movies.map(function (movie) {
+          return /*#__PURE__*/_react.default.createElement("div", null, movie.Title);
+        }));
+      }
     }
   }]);
 
