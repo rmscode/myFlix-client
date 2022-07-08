@@ -17,18 +17,21 @@ class MainView extends React.Component {
         {
           _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...'
         }
-      ]
+      ],
+      selectedMovie: null
     }
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, selectedMovie } = this.state;
+
+    if (selectedMovie) return <MovieView movie={selectedMovie} />;
   
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
   
     return (
       <div className="main-view">
-        {movies.map(movie => <MovieCard key={movie._id} movieData={movie}/>)}
+        {movies.map(movie => <MovieCard key={movie._id} movieData={movie} onClick={() => { this.state.selectedMovie = movie; }} />)}
       </div>
     );
   }
