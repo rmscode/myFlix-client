@@ -10,11 +10,11 @@ class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null
-    }
+    };
   }
 
   componentDidMount(){
-    axios.get('https://jackie-chan-movie-api.herokuapp.com/')
+    axios.get('https://jackie-chan-movie-api.herokuapp.com/movies')
       .then(response => {
         this.setState({
           movies: response.data
@@ -40,8 +40,8 @@ class MainView extends React.Component {
       <div className='main-view'>
         {selectedMovie
           ? <MovieView movieData={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-        : movies.map(movie => (
-          <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
         ))
       }
       </div>
