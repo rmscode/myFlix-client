@@ -20,7 +20,7 @@ class MainView extends React.Component {
           movies: response.data
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -30,7 +30,7 @@ class MainView extends React.Component {
       selectedMovie: newSelectedMovie
     });
   }
-
+  
   render() {
     const { movies, selectedMovie } = this.state;
 
