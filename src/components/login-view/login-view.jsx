@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -24,3 +25,11 @@ export function LoginView(props) {
     </form>
   );
 }
+
+LoginView.PropTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired
+  }),
+  onLoggedIn: PropTypes.func.isRequired
+};
