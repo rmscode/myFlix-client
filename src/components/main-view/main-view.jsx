@@ -1,5 +1,6 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 
 import { LoginView } from '../login-view/login-view';  
@@ -63,7 +64,9 @@ class MainView extends React.Component {
         {selectedMovie
           ? (
             <Row>
-              <MovieView movieData={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              <Col>
+                <MovieView movieData={selectedMovie} onBackClick= {newSelectedMovie => { this.setSelectedMovie (newSelectedMovie); }}/>
+              </Col>
             </Row>
             )
             : movies.map(movie => (
