@@ -33414,8 +33414,8 @@ class MovieCard extends (0, _reactDefault.default).Component {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                             onClick: ()=>onMovieClick(movieData),
-                            variant: "link",
-                            children: "Open"
+                            variant: "primary",
+                            children: "More Info"
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 16,
