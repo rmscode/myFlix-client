@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 
 export class MovieView extends React.Component {
   
@@ -7,21 +12,22 @@ export class MovieView extends React.Component {
     const { movieData, onBackClick} = this.props;
     
     return (
-      <div className='movie-view'>
-        <div className='movie-poster'>
-          <img src={movieData.ImagePath} />
-        </div>
-        <div className='movie-title'>
-          <span className='label'>Title: </span>
-          <span className='value'>{movieData.Title}</span>
-        </div>
-        <div className='movie-description'>
-          <span className='label'>Description: </span>
-          <span className='value'>{movieData.Description} </span>
-        </div>
-        <button onClick={() => { onBackClick(null);}}>Back</button>
-      </div>
-    );  
+      <Card>
+        <Card.Img variant="top" src={movieData.ImagePath} />
+        <Card.Body>
+          <Card.Title>{movieData.Title} - {movieData.Genre.Name}</Card.Title>
+          <Card.Text>{movieData.Description}</Card.Text>
+          <Card.Title>Directed by {movieData.Director.Name}</Card.Title>
+          <Card.Text>D.O.B. {movieData.Director.Birth}</Card.Text>
+          <Card.Text>{movieData.Director.Bio}</Card.Text>
+          <Button 
+          variant="primary" 
+          onClick={() => onBackClick(null)} >
+            Back
+          </Button>
+        </Card.Body>
+      </Card>
+    );
   }
 }
 
