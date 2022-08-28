@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 import { LoginView } from '../login-view/login-view';  
@@ -67,6 +68,14 @@ class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
   onRegistration(registered) {
     this.setState({
       registered
@@ -84,6 +93,7 @@ class MainView extends React.Component {
   
     return (
       <Row className="main-view justify-content-md-center">
+        <Button variant="primary" onClick={() => { this.onLoggedOut() }}>Logout</Button>
           {selectedMovie
             ? (
               <Col md={8}>
