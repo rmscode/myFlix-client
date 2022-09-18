@@ -29,14 +29,14 @@ export class ProfileView extends React.Component {
     this.getUser(accessToken);
   }
 
-  onRemoveFavorite = (e, movieData) => {
+  onRemoveFavorite = (e, movie) => {
     const username = localStorage.getItem('user');
     console.log(username);
     const token = localStorage.getItem('token');
     console.log(this.props);
     axios
       .delete(
-        `https://jackie-chan-movie-api.herokuapp.com/users/${Username}/favorites/remove/${movieData._id}`,
+        `https://jackie-chan-movie-api.herokuapp.com/users/${Username}/favorites/remove/${movie._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
@@ -274,7 +274,7 @@ export class ProfileView extends React.Component {
                 return (
                   <Col key={_id} className='fav-movie'>
                     <Figure>
-                      <Link to={`/movies/${movieData._id}`}>
+                      <Link to={`/movies/${movie._id}`}>
                         <Figure.Image src={ImagePath} alt={Title} />
                         <Figure.Caption>{Title}</Figure.Caption>
                       </Link>
@@ -282,7 +282,7 @@ export class ProfileView extends React.Component {
                     <Button
                       className='remove'
                       variant='secondary'
-                      onClick={() => removeFav(movieData._id)}
+                      onClick={() => removeFav(movie._id)}
                     >
                       Remove from the list
                     </Button>

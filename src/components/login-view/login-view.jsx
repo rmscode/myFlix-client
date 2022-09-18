@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -7,6 +8,9 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 export function LoginView(props) {
@@ -42,6 +46,7 @@ export function LoginView(props) {
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                       type='text'
+                      placeholder='Username'
                       onChange={(e) => setUsername(e.target.value)}
                     />
                   </Form.Group>
@@ -50,6 +55,7 @@ export function LoginView(props) {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type='password'
+                      placeholder='******'
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
@@ -61,6 +67,7 @@ export function LoginView(props) {
                   >
                     Log In
                   </Button>
+                  <p>No account? <Link to={"/register"}>Create one.</Link></p>
                 </Form>
               </Card.Body>
             </Card>

@@ -1,25 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 
+import { Link } from 'react-router-dom';
+
 export class MovieView extends React.Component {
   
   render() {
-    const { movieData, onBackClick} = this.props;
+    const { movie, onBackClick} = this.props;
     
     return (
       <Card>
-        <Card.Img variant="top" src={movieData.ImagePath} />
+        <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
-          <Card.Title>{movieData.Title} - {movieData.Genre.Name}</Card.Title>
-          <Card.Text>{movieData.Description}</Card.Text>
-          <Card.Title>Directed by {movieData.Director.Name}</Card.Title>
-          <Card.Text>D.O.B. {movieData.Director.Birth}</Card.Text>
-          <Card.Text>{movieData.Director.Bio}</Card.Text>
+          <Card.Title>{movie.Title} - {movie.Genre.Name}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
+          <Card.Title>Directed by 
+            <Link to={`/directors/${movie.Director.Name}`}>
+              {movie.Director.Name}
+            </Link>
+          </Card.Title>
+          <Card.Title>Genre -  
+            <Link to={`/genres/${movie.Genre.Name}`}>
+              {movie.Genre.Name}
+            </Link>
+          </Card.Title>
+          <Card.Text>D.O.B. {movie.Director.Birth}</Card.Text>
+          <Card.Text>{movie.Director.Bio}</Card.Text>
           <Button 
           variant="primary" 
           onClick={() => onBackClick(null)} >
@@ -32,7 +44,7 @@ export class MovieView extends React.Component {
 }
 
 MovieView.propTypes = {
-  movieData: PropTypes.shape({
+  movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Actors: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
