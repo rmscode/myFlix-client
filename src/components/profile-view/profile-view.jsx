@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-import './profile-view.scss';
+// import './profile-view.scss';
 
 export class ProfileView extends React.Component {
   constructor() {

@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
-import "./navbar.scss";
+// import './navbar.scss';
 
 export function NavBar() {
   let user = localStorage.getItem("user");

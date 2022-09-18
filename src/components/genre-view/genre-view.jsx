@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-import "./genre-view.scss";
+// import './genre-view.scss';
 
 export class GenreView extends React.Component {
   render() {

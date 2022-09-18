@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-import "./director-view.scss";
+// import './director-view.scss';
 
 export class DirectorView extends React.Component {
   render() {

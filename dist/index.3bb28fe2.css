@@ -1,0 +1,40 @@
+.register {
+  color: #191d32;
+  color: #eef0f2;
+  background-color: #336d82;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: Pathway Gothic One, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity .2s;
+  display: inline-block;
+}
+
+.register:hover, .register:focus {
+  cursor: pointer;
+  opacity: .5;
+  background-color: #336d82;
+}
+
+.reg-inputs {
+  padding-bottom: 10px;
+}
+
+.a {
+  color: #336d82;
+  text-decoration: none;
+}
+
+.a:hover, .a:focus {
+  color: #73956f;
+  text-decoration: none;
+}
+
+.my-flix {
+  color: #4682b4;
+}
+
+/*# sourceMappingURL=index.3bb28fe2.css.map */

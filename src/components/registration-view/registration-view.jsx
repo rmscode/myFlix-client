@@ -11,7 +11,10 @@ import Row from 'react-bootstrap/Row';
 
 import { Link } from 'react-router-dom';
 
+// import './registration-view.scss'
+
 import axios from 'axios';
+
 
 export function RegistrationView(props) {
   const [name, setName] = useState("");
