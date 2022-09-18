@@ -38001,7 +38001,7 @@ function RegistrationView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) (0, _axiosDefault.default).post("https://jackie-chan-movie-api.herokuapp.com/users", {
+        if (isReq) (0, _axiosDefault.default).post("https://jackie-chan-movie-api.herokuapp.com/users/new", {
             Name: name,
             Username: username,
             Password: password,

@@ -67,7 +67,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       axios
-        .post("https://jackie-chan-movie-api.herokuapp.com/users", {
+        .post("https://jackie-chan-movie-api.herokuapp.com/users/new", {
           Name: name,
           Username: username,
           Password: password,
