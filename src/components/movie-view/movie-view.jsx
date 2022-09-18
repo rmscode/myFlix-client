@@ -10,31 +10,29 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 export class MovieView extends React.Component {
-  
   render() {
-    const { movie, onBackClick} = this.props;
-    
+    const { movie, onBackClick } = this.props;
+
     return (
       <Card>
-        <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Img variant='top' src={movie.ImagePath} />
         <Card.Body>
-          <Card.Title>{movie.Title} - {movie.Genre.Name}</Card.Title>
+          <Card.Title>
+            {movie.Title} -{' '}
+            <Link to={`/directors/${movie.Director.Name}`}>
+              {movie.Genre.Name}
+            </Link>
+          </Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
-          <Card.Title>Directed by 
+          <Card.Title>
+            Directed by{' '}
             <Link to={`/directors/${movie.Director.Name}`}>
               {movie.Director.Name}
             </Link>
           </Card.Title>
-          <Card.Title>Genre -  
-            <Link to={`/genres/${movie.Genre.Name}`}>
-              {movie.Genre.Name}
-            </Link>
-          </Card.Title>
           <Card.Text>D.O.B. {movie.Director.Birth}</Card.Text>
           <Card.Text>{movie.Director.Bio}</Card.Text>
-          <Button 
-          variant="primary" 
-          onClick={() => onBackClick(null)} >
+          <Button variant='primary' onClick={() => onBackClick(null)}>
             Back
           </Button>
         </Card.Body>
@@ -50,15 +48,15 @@ MovieView.propTypes = {
     Description: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
+      Description: PropTypes.string.isRequired,
     }),
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
       Birth: PropTypes.string,
-      Death: PropTypes.string
+      Death: PropTypes.string,
     }),
-    ImagePath: PropTypes.string.isRequired
+    ImagePath: PropTypes.string.isRequired,
   }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  onBackClick: PropTypes.func.isRequired,
 };
