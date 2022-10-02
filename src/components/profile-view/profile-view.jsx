@@ -3,7 +3,6 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -28,26 +27,6 @@ export class ProfileView extends React.Component {
     const accessToken = localStorage.getItem('token');
     this.getUser(accessToken);
   }
-
-  onRemoveFavorite = (e, movie) => {
-    const username = localStorage.getItem('user');
-    console.log(username);
-    const token = localStorage.getItem('token');
-    console.log(this.props);
-    axios
-      .delete(
-        `https://jackie-chan-movie-api.herokuapp.com/users/${Username}/favorites/remove/${movie._id}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      .then((response) => {
-        console.log(response);
-        alert('The movie has been removed from your favorites.');
-        this.componentDidMount();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
 
   onLoggedOut() {
     localStorage.removeItem('token');
@@ -78,8 +57,45 @@ export class ProfileView extends React.Component {
       });
   };
 
+  getUserFavs = (token) => {
+    axios
+      .get(
+        'https://jackie-chan-movie-api.herokuapp.com/users/' +
+          localStorage.getItem('user'),
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        this.setState({
+          FavoriteMovies: response.data.FavoriteMovies,
+        });
+      });
+  };
+
+  removeFav(movie) {
+    const token = localStorage.getItem('token');
+    const Username = localStorage.getItem('user');
+
+    axios
+      .delete(
+        `https://jackie-chan-movie-api.herokuapp.com/users/${Username}/favorites/remove/${movie._id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then(() => {
+        alert('Removed from favorites!');
+        this.componentDidMount();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // Update user
   editUser = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     axios
@@ -115,15 +131,18 @@ export class ProfileView extends React.Component {
       });
   };
 
-  // Deregister
+  // Delete user
   onDeleteUser() {
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
     axios
-      .delete(`https://jackie-chan-movie-api.herokuapp.com/users/${Username}/remove`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .delete(
+        `https://jackie-chan-movie-api.herokuapp.com/users/${Username}/remove`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((response) => {
         console.log(response);
         alert("Your profile has been deleted. We're sad to see you go!");
@@ -167,25 +186,24 @@ export class ProfileView extends React.Component {
 
   render() {
     const { movies } = this.props;
-    const { FavoriteMovies, Username, Email, Birthday, Password } = this.state;
+    const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     return (
-      <Container>
         <Row>
           <Col>
+            <p></p>
             <Card className='user-profile'>
-              <Card.Header>User Profile</Card.Header>
+              <Card.Header>Profile Details</Card.Header>
               <Card.Body>
                 <>
-                  <p>Name: {Username}</p>
+                  <p>Username: {Username}</p>
                   <p>Email: {Email}</p>
                   <p>Birthday: {Birthday}</p>
                 </>
               </Card.Body>
             </Card>
-          </Col>
-          <Col>
-            <Card className='update-inputs'>
+            <p></p>
+            <Card className='update-profile'>
               <Card.Header>Update Profile</Card.Header>
               <Card.Body>
                 <Card.Text>
@@ -245,8 +263,8 @@ export class ProfileView extends React.Component {
                         type='submit'
                         onClick={() => this.editUser()}
                       >
-                        Update User
-                      </Button>
+                        Update Profile
+                      </Button>{' '}
                       <Button
                         className='delete-button'
                         variant='danger'
@@ -259,40 +277,72 @@ export class ProfileView extends React.Component {
                 </Card.Text>
               </Card.Body>
             </Card>
+            <p></p>
+
+            <Card>
+              <Card.Header>Favorite Movies</Card.Header>
+              <Card.Body>
+              {FavoriteMovies.length === 0 && (
+                <div className="text-center text-dark m-auto">
+                  Your don`t have favorite movies yet!
+                </div>
+              )}
+
+              <Row className="d-flex justify-content-center">
+                {movies.map((movie) => {
+                  if (
+                    movie._id === FavoriteMovies.find((m) => m === movie._id)
+                  ) {
+                    return (
+                      <Col
+                        sm={12}
+                        lg={6}
+                        xl={4}
+                        className="text-center justify-content-center"
+                        key={movie._id}
+                      >
+                        <Row>
+                          <Col
+                            className="m-auto image-container-profile"
+                            sm={12}
+                            md={6}
+                          >
+                            <img
+                              className="w-100 m-auto mt-2"
+                              src={movie.ImagePath}
+                            />
+                            <p>{movie.Title}</p>
+
+                            <Button
+                              className="remove-favorite w-50 px-6 mt-5 m-auto mt-2 custom-remove"
+                              variant="danger"
+                              value={movie._id}
+                              onClick={() => {
+                                this.removeFav(movie);
+                              }}
+                            >
+                              Remove
+                            </Button>
+                          </Col>
+                        </Row>
+                      </Col>
+                    );
+                  }
+                })}
+              </Row>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
-        <Row></Row>
-        <Card className='favmov-inputs'>
-          <Card.Body>
-            <Row>
-              <Col xs={12}>
-                <h4>Favorite Movies</h4>
-              </Col>
-            </Row>
-            <Row>
-              {FavoriteMovies.map((ImagePath, Title, _id) => {
-                return (
-                  <Col key={_id} className='fav-movie'>
-                    <Figure>
-                      <Link to={`/movies/${movie._id}`}>
-                        <Figure.Image src={ImagePath} alt={Title} />
-                        <Figure.Caption>{Title}</Figure.Caption>
-                      </Link>
-                    </Figure>
-                    <Button
-                      className='remove'
-                      variant='secondary'
-                      onClick={() => removeFav(movie._id)}
-                    >
-                      Remove from the list
-                    </Button>
-                  </Col>
-                );
-              })}
-            </Row>
-          </Card.Body>
-        </Card>
-      </Container>
     );
   }
 }
+
+ProfileView.propTypes = {
+  username: PropTypes.shape({
+    FavoriteMovies: PropTypes.array.isRequired,
+    Username: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birth: PropTypes.string.isRequired,
+  }),
+};

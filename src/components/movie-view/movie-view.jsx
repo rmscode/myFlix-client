@@ -8,10 +8,32 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // import './movie-view.scss';
 
 export class MovieView extends React.Component {
+  constructor() {
+    super();
+    this.stae = {};
+  }
+
+  addFavorite(movie) {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    axios
+      .post(
+        `https://jackie-chan-movie-api.herokuapp.com/users/${user}` +
+          '/favorites/add/' +
+          this.props.movie._id,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((response) => {
+        alert(this.props.movie.Title + ' has been added to your favorites!');
+      });
+  }
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -36,6 +58,12 @@ export class MovieView extends React.Component {
           <Card.Text>{movie.Director.Bio}</Card.Text>
           <Button variant='primary' onClick={() => onBackClick(null)}>
             Back
+          </Button>{' '}
+          <Button
+            variant="outline-success"
+            onClick={() => this.addFavorite(movie)}
+          >
+            ❤️ Add To Favorites
           </Button>
         </Card.Body>
       </Card>
