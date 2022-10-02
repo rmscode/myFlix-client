@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
@@ -12,7 +11,6 @@ export class GenreView extends React.Component {
     const { genre, onBackClick, movies } = this.props;
 
     return (
-      <Container>
         <Card className="genre-view">
           <Card.Header className="genre-view-header">Genre</Card.Header>
           <Card.Body className="genre-view-title">{genre.Name}</Card.Body>
@@ -28,7 +26,6 @@ export class GenreView extends React.Component {
             </Button>
           </Card.Footer>
         </Card>
-      </Container>
     );
   }
 }

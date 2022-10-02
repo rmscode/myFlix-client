@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
@@ -12,7 +11,6 @@ export class DirectorView extends React.Component {
     const { director, onBackClick, movies, movie } = this.props;
 
     return (
-      <Container>
         <Card className="dir-view">
           <Card.Header className="dir-view-header">Director</Card.Header>
           <Card.Body className="dir-view-title">{director.Name}</Card.Body>
@@ -29,7 +27,6 @@ export class DirectorView extends React.Component {
             </Button>
           </Card.Footer>
         </Card>
-      </Container>
     );
   }
 }

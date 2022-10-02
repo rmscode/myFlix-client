@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
 // import './navbar.scss';
@@ -31,7 +30,6 @@ export function NavBar() {
 
   return (
     <Navbar sticky='top' bg='dark' collapseOnSelect expand='xxl' variant='dark'>
-      <Container>
         <Navbar.Brand className='navbar-logo' href='/'>
           The Jackie Chan Movie DB
         </Navbar.Brand>
@@ -52,7 +50,6 @@ export function NavBar() {
             {!isAuth() && <Nav.Link href='/register'>Sign up</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   );
 }
