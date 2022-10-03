@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rmscode/myFlix-client#readme",
   "dependencies": {
+    "@redux-devtools/extension": "^3.2.3",
     "axios": "^0.27.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
