@@ -28,3 +28,6 @@ function moviesApp(state = {}, action) {
     movies: movies(state.movies, action)
   }
 }
+
+
+export default moviesApp;
