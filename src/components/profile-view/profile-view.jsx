@@ -284,7 +284,7 @@ export class ProfileView extends React.Component {
               <Card.Body>
               {FavoriteMovies.length === 0 && (
                 <div className="text-center text-dark m-auto">
-                  Your don`t have favorite movies yet!
+                  You don`t have favorite movies yet!
                 </div>
               )}
 
