@@ -1,10 +1,13 @@
-$background-color: rgb(25, 29, 50);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+$background-color: #121212; 
+$dark-gray: #121212;
 $text-color: rgb(238, 240, 242);
 $tealblue: rgb(51, 109, 130);
 $russiangreen: rgb(115, 149, 111);
 $middlebluegreen: rgb(129, 230, 217);
-$font-family_1: "Pathway Gothic One", sans-serif;
-$font-family_2: "League Gothic", sans-serif;
+
 
 .row {
   margin: 10px;

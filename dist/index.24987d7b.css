@@ -1,69 +1,131 @@
-.logout {
-  color: #eef0f2;
+.logo {
+  height: 64px;
+  width: 25%;
+  text-align: center;
+  background-color: #121212;
+  padding-top: 15px;
+  position: fixed;
+  top: 0;
+  left: 1%;
+}
+
+.nav-elements {
+  box-shadow: 0 0 0 13px #121212;
+}
+
+.navbar-logo {
+  height: 30px;
+}
+
+.toggle-nav {
+  background-color: #121212;
+  margin-left: 45vw;
+}
+
+.logout-btn {
+  z-index: 1022;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .toggle-nav {
+    background-color: #121212;
+    margin-left: 30vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .toggle-nav {
+    background-color: #121212;
+    margin-left: 2%;
+  }
+
+  .light-animation {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .cinemapp-logo {
+    height: 60px;
+    background-color: #121212;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-elements {
+    width: 93vw;
+    background-color: #121212;
+    flex-direction: column;
+    margin-top: 2%;
+    padding-bottom: 15px;
+    display: flex;
+    position: absolute;
+  }
+
+  .nav-elements .custom-link {
+    margin-bottom: 5px;
+    font-size: 35px;
+  }
+}
+
+.main-view {
+  text-align: center;
+}
+
+.card-container, .card-body {
+  background-color: #000 !important;
+}
+
+.card-img {
+  overflow: hidden;
+}
+
+.title-container {
   width: 100%;
-  background-color: #336d82;
-  border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  padding: 10px;
-  font-family: Pathway Gothic One, sans-serif;
-  font-size: 14px;
-  text-decoration: none;
-  transition: opacity .2s;
-  display: inline-block;
+  height: 60%;
+  background-image: linear-gradient(#0000, #0003, #000);
+  position: absolute;
+  bottom: -5px;
+  right: 0;
 }
 
-.logout:hover, .logout:focus {
-  cursor: pointer;
-  opacity: .5;
-  color: #191d32;
-  background-color: #336d82;
-  text-decoration: none;
+.title-container .card-title {
+  width: 70%;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 20px;
+  position: absolute;
+  bottom: 4%;
 }
 
-.row {
-  margin: 10px;
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .title-container .card-title {
+    width: 50%;
+    font-size: 16px;
+  }
 }
 
-.user-profile, .update-inputs, .favmov-inputs {
-  color: #191d32;
-  background-color: #eef0f2;
-  padding-bottom: 10px;
+@media screen and (max-width: 992px) {
+  .title-container .card-title {
+    width: 50%;
+    font-size: 14px;
+  }
+
+  .title-container .rating {
+    font-size: 14px;
+  }
 }
 
-.register {
-  color: #191d32;
-  color: #eef0f2;
-  background-color: #336d82;
-  border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  padding: 10px;
-  font-family: Pathway Gothic One, sans-serif;
-  font-size: 14px;
-  text-decoration: none;
-  transition: opacity .2s;
-  display: inline-block;
-}
+@media screen and (max-width: 760px) {
+  .title-container .card-title {
+    width: 70%;
+    font-size: 24px;
+  }
 
-.register:hover, .register:focus {
-  cursor: pointer;
-  opacity: .5;
-  background-color: #336d82;
-}
-
-.reg-inputs {
-  padding-bottom: 10px;
-}
-
-.a {
-  color: #336d82;
-  text-decoration: none;
-}
-
-.a:hover, .a:focus {
-  color: #73956f;
-  text-decoration: none;
+  .title-container .rating {
+    font-size: 24px;
+  }
 }
 
 .my-flix {

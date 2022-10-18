@@ -1,31 +1,73 @@
-$background-color: rgb(25, 29, 50);
-$text-color: rgb(238, 240, 242);
-$tealblue: rgb(51, 109, 130);
-$russiangreen: rgb(115, 149, 111);
-$middlebluegreen: rgb(129, 230, 217);
-$font-family_1: "Pathway Gothic One", sans-serif;
-$font-family_2: "League Gothic", sans-serif;
+$dark-gray: #121212;
 
-.logout {
-  border: none;
-  display: inline-block;
-  background-color: $tealblue;
-  font-size: 14px;
-  color: $text-color;
-  font-family: $font-family_1;
-  text-decoration: none;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  transition: 0.2s opacity;
-  width: 100%;
+.logo {
+  position: fixed;
+  left: 1%;
+  top:0;
+  padding-top: 15px;
+  height: 64px;
+  width: 25%;
+  background-color: $dark-gray; 
+  text-align: center;
 }
 
-.logout:hover,
-.logout:focus {
-  cursor: pointer;
-  opacity: 0.5;
-  background-color: $tealblue;
-  color: $background-color;
-  text-decoration: none;
+.nav-elements {
+  box-shadow: 0px 0px 0px 13px  $dark-gray;
 }
+
+.navbar-logo {
+  height: 30px;
+}
+
+.toggle-nav {
+  background-color: $dark-gray;
+  margin-left: 45vw;
+  // text-align: right;
+}
+
+.logout-btn {
+  z-index: 1022;
+}
+
+
+@media screen and (min-width: 992px) and ( max-width: 1200px) {
+  .toggle-nav {
+    background-color: $dark-gray;
+    margin-left: 30vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .toggle-nav {
+    background-color: $dark-gray;
+    margin-left: 2%;
+  }
+
+  .light-animation {
+    display: none;
+  }
+}
+@media screen and (max-width: 990px){
+  .cinemapp-logo {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    background-color: $dark-gray; 
+  }
+
+  .nav-elements {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: $dark-gray;
+    width: 93vw;
+    margin-top: 2%;
+    padding-bottom: 15px;
+    .custom-link {
+      margin-bottom: 5px;
+      font-size: 35px;
+     }
+  }
+}
+  

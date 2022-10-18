@@ -1,69 +1,62 @@
-$background-color: rgb(25, 29, 50);
-$text-color: rgb(238, 240, 242);
-$tealblue: rgb(51, 109, 130);
-$russiangreen: rgb(115, 149, 111);
-$middlebluegreen: rgb(129, 230, 217);
-$font-family_1: "Pathway Gothic One", sans-serif;
-$font-family_2: "League Gothic", sans-serif;
+$dark-gray: #121212;
 
-.movie-card {
-  height: 680px;
-  border-radius: 15px;
-  color: $text-color;
-  background-color: $tealblue;
-  margin: 10px;
-  padding: 10px;
+.main-view {
+  text-align: center;
+}
+
+.card-container { 
+  background-color: black !important;
+}
+
+.card-body {
+  background-color: black !important;
 }
 
 .card-img {
-  width: 100px;
-  height: 150px;
-  object-fit: cover;
-}
-
-#movie-card {
-  margin: 10px;
-}
-
-.card-title {
-  font-family: $font-family_2;
-  font-weight: 300;
-  font-size: 32px;
-}
-
-.description {
-  font-size: 13px;
   overflow: hidden;
-  height: 100px;
 }
 
-.open {
-  border: none;
-  display: inline-block;
-  background-color: $russiangreen;
-  font-size: 14px;
-  color: $background-color;
-  font-family: $font-family_1;
-  text-decoration: none;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  transition: 0.2s opacity;
+.title-container {
   width: 100%;
+  height: 60%;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .2), rgba(0, 0, 0, 1));
+  .card-title {
+    font-size: 20px;
+    position: absolute;
+    bottom: 4%;
+    width: 70%;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  }
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .title-container {
+    .card-title {
+      font-size: 16px;
+      width: 50%;
+    }
+  }
 }
 
-.open:hover,
-.open:focus {
-  cursor: pointer;
-  opacity: 0.5;
-  background-color: $middlebluegreen;
-  color: $background-color;
+@media screen and (max-width: 992px) {
+  .title-container {
+    .card-title {
+      font-size: 14px;
+      width: 50%;
+    }
+  }
 }
 
-@media all and (max-width: 775px) {
-  .movie-card {
-    height: auto;
-    display: block;
-    margin: 15px;
+@media screen and (max-width: 760px) {
+  .title-container {
+    .card-title {
+      font-size: 24px;
+      width: 70%;
+    }
   }
 }

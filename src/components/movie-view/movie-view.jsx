@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-// import './movie-view.scss';
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
   constructor() {
@@ -37,35 +37,54 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card>
-        <Card.Img variant='top' src={movie.ImagePath} />
-        <Card.Body>
-          <Card.Title>
-            {movie.Title} -{' '}
-            <Link to={`/genres/${movie.Genre.Name}`}>
-              {movie.Genre.Name}
-            </Link>
-          </Card.Title>
-          <Card.Text>{movie.Description}</Card.Text>
-          <Card.Title>
-            Directed by{' '}
-            <Link to={`/directors/${movie.Director.Name}`}>
-              {movie.Director.Name}
-            </Link>
-          </Card.Title>
-          <Card.Text>D.O.B. {movie.Director.Birth}</Card.Text>
-          <Card.Text>{movie.Director.Bio}</Card.Text>
-          <Button variant='primary' onClick={() => onBackClick(null)}>
-            Back
-          </Button>{' '}
+      <Row className="movie-view mt-5 m-auto ">
+        <Col md={12} lg={6} className="movie-poster ">
+          <img className="w-100" src={movie.ImagePath} />
+        </Col>
+        <Col md={12} lg={6} className="movie-body text-light my-auto">
+          <div className="movie-title">
+            <span className="label"> </span>
+            <h1 className="value soft-violet">{movie.Title}</h1>
+          </div>
+          <div className="movie-genre">
+            <span className="label"></span>
+              <Link to={`/genres/${movie.Genre.Name}`}>
+                <Button className="custom-link " variant="link">
+                  <h4>{movie.Genre.Name}</h4>
+                </Button>
+              </Link>
+          </div>
+          <div className="movie-description">
+            <span className="label"> </span>
+            <span className="value">{movie.Description}</span>
+          </div>
+          <div className="movie-director mt-5">
+            <span className="label">Directed by:</span>
+              <Link to={`/directors/${movie.Director.Name}`}>
+                <Button className="custom-link " variant="link">
+                  <h3>{movie.Director.Name}</h3>
+                </Button>
+              </Link>
+          </div>
+          
           <Button
+            className="mx-2 mt-4"
+            variant="outline-light"
+            onClick={() => {
+              onBackClick(null);
+            }}
+          >
+            Back
+          </Button>
+          <Button
+            className="mx-2 mt-4"
             variant="outline-success"
             onClick={() => this.addFavorite(movie)}
           >
             ❤️ Add To Favorites
           </Button>
-        </Card.Body>
-      </Card>
+        </Col>
+      </Row>
     );
   }
 }

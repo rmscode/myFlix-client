@@ -1,0 +1,58 @@
+$dark-gray: #121212;
+
+.movie-card-col {
+  max-height: 435px;
+  overflow: hidden;
+  z-index: 9;
+  &:hover,
+  &:active {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  transition: .4s ease-in-out; 
+}
+
+.dark-gray {
+  background-color: $dark-gray; 
+  z-index: 90;
+}
+
+.light-animation { 
+  border-radius: 50%;
+  box-shadow: 0 0 500px rgba(255, 238, 0, 0.2);
+  background-color: rgba(255, 238, 0, 0.09);
+  width: 600px;
+  height: 600px;
+  position: fixed;
+  left: -10%;
+  bottom: -25%;
+  animation: slide 60s ease-in-out infinite alternate both;
+}
+
+@keyframes slide {
+  0% {
+           
+    left: -10%;
+    bottom: -65%;
+  }
+  25% {
+            
+    left: 100%;
+    bottom: -65%;  
+  }
+  50% {
+            
+    left: 100%;
+    bottom: 90%;  
+  }
+  75% {
+            
+    left: 100%;
+    bottom: -65%;  
+  }
+  100% {
+            
+    left: -10%;
+    bottom: -65%;  
+  }
+}

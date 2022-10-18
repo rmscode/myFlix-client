@@ -189,12 +189,12 @@ export class ProfileView extends React.Component {
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     return (
-        <Row>
+        <Row className='profile-view d-flex'>
           <Col>
             <p></p>
             <Card className='user-profile'>
               <Card.Header>Profile Details</Card.Header>
-              <Card.Body>
+              <Card.Body className='text-light'>
                 <>
                   <p>Username: {Username}</p>
                   <p>Email: {Email}</p>
@@ -220,7 +220,7 @@ export class ProfileView extends React.Component {
                     }
                   >
                     <Form.Group>
-                      <Form.Label>Username</Form.Label>
+                      <Form.Label className='text-light'>Username</Form.Label>
                       <Form.Control
                         type='text'
                         name='Username'
@@ -230,7 +230,7 @@ export class ProfileView extends React.Component {
                       />
                     </Form.Group>
                     <Form.Group>
-                      <Form.Label>Password</Form.Label>
+                      <Form.Label className='text-light'>Password</Form.Label>
                       <Form.Control
                         type='password'
                         name='Password'
@@ -240,7 +240,7 @@ export class ProfileView extends React.Component {
                       />
                     </Form.Group>
                     <Form.Group>
-                      <Form.Label>Email</Form.Label>
+                      <Form.Label className='text-light'>Email</Form.Label>
                       <Form.Control
                         type='email'
                         name='Email'
@@ -250,7 +250,7 @@ export class ProfileView extends React.Component {
                       />
                     </Form.Group>
                     <Form.Group>
-                      <Form.Label>Birthday</Form.Label>
+                      <Form.Label className='text-light'>Birthday</Form.Label>
                       <Form.Control
                         type='date'
                         name='Birthday'

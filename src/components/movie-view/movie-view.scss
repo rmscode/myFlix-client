@@ -1,7 +1,7 @@
 $background-color: rgb(25, 29, 50);
 $text-color: rgb(238, 240, 242);
-$tealblue: rgb(51, 109, 130);
-$russiangreen: rgb(115, 149, 111);
+$soft-violet: rgb(187, 134, 252);
+$dark-violet: rgb(102, 75, 134);
 $middlebluegreen: rgb(129, 230, 217);
 $font-family_1: "Pathway Gothic One", sans-serif;
 $font-family_2: "League Gothic", sans-serif;
@@ -19,31 +19,31 @@ img {
 }
 
 .director-link {
-  color: $tealblue;
+  color: $soft-violet;
   text-decoration: none;
 }
 
 .director-link:hover,
 .director-link:focus {
   text-decoration: none;
-  color: $russiangreen;
+  color: $dark-violet;
 }
 
 .genre-link {
-  color: $tealblue;
+  color: $soft-violet;
   text-decoration: none;
 }
 
 .genre-link:hover,
 .genre-link:focus {
   text-decoration: none;
-  color: $russiangreen;
+  color: $dark-violet;
 }
 
 .movie-view-button {
   border: none;
   display: inline-block;
-  background-color: $tealblue;
+  background-color: $soft-violet;
   font-size: 14px;
   color: $text-color;
   font-family: $font-family_1;
@@ -58,7 +58,7 @@ img {
 .movie-view-button:hover {
   cursor: pointer;
   opacity: 0.5;
-  background-color: $tealblue;
+  background-color: $soft-violet;
 }
 
 .movie-view-title {

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+$soft-violet: rgb(187, 134, 252);
+$dark-violet: rgb(102, 75, 134);
+
+$poppins: 'Poppins', sans-serif;
+
+$fonts: (
+  'poppins': $poppins,
+);
+
+$typographies: (
+  'h1': (
+    font: 'poppins',
+    weight: 400,
+    size: 32px,
+  ),
+  'p': (
+    font: 'poppins',
+    weight: 200,
+  ),
+);
+
+body {
+  font-family: 'poppins';
+}
+
+p, span {
+  font-size: 20px;
+}
+
+.custom-link {
+  text-decoration: none;
+  color: $soft-violet;
+  &:hover{
+    color: $dark-violet;
+  }
+}
+
+
+.purple-text {
+  color: $soft-violet;
+}
